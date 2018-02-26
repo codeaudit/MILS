@@ -1,7 +1,7 @@
 library("shiny")
 
 ui <- fluidPage(
-  titlePanel("Minimal Algorithmic Loss Data Reduction"),
+  titlePanel("Minimal Algorithmic Information Loss for Data Reduction"),
   
   sidebarLayout(
     
@@ -10,17 +10,18 @@ ui <- fluidPage(
                 label = "Enter a string",
                 value = "110001101010111101"),
       
-      sliderInput(inputId = "blockSize",
-                  label = "Block size",
-                  min = 2, max = 12, value = 12, step = 1),
-      
-      sliderInput(inputId = "blockOverlap",
-                  label = "Block overlap",
-                  min = 0, max = 11, value = 11, step = 1),
-      
       sliderInput(inputId = "nReduced",
                   label = "Number of reduced bits",
                   min = 1, max = 10, value = 10, step = 1),
+      
+      sliderInput(inputId = "blockSize",
+                  label = "Block size",
+                  min = 2, max = 12, value = 12),
+      
+      sliderInput(inputId = "blockOverlap",
+                  label = "Block overlap",
+                  min = 0, max = 11, value = 11),
+      
       
       radioButtons(inputId = "alphabet",
                    label = "Alphabet size",

@@ -29,13 +29,13 @@ server <- function(input, output, session) {
     
     input$evalButton
     isolate({
-      print(paste0("Reduced string (minimal algorithmic loss) = ", 
+      paste0("Reduced string (minimal algorithmic loss) = ", 
                    simultaneousAttackOnString(input$insertString, 
                                               input$blockSize, 
                                               input$blockSize - input$blockOverlap, 
                                               input$alphabet, input$nReduced, 
                                               FALSE)
-      ))
+      )
       
     })
     

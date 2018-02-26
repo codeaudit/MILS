@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1519639610966.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "13819977",
+    "lastKnownWriteTime" : 1519639690,
+    "last_content_update" : 1519639690988,
+    "path" : "~/MALDR/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "cursorPosition" : "6,4",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

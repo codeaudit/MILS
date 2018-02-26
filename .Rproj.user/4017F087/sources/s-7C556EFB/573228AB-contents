@@ -1,0 +1,15 @@
+library(shiny)
+
+server <- function(input, output) {
+  
+  output$showStr <- renderText({
+    # Imprimir el texto
+    input$evalButton
+    isolate({
+      print(paste0("The string is: ", input$insertString))
+      
+    })
+    
+  })
+  
+}

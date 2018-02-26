@@ -1,0 +1,46 @@
+library("shiny")
+
+ui <- fluidPage(
+  
+  sidebarLayout(
+    
+    tabsetPanel(
+      
+      # Primer tab
+      tabPanel("Tab name",
+        
+        wellPanel(
+          textInput(inputId = "insertString",
+                    label = "String to be evaluated",
+                    value = "Sigue tu corazon"),
+          # Boton
+          actionButton("evalButton", "Evaluate")
+        )
+      )
+      
+    ),
+  
+    mainPanel(
+      textOutput(outputId = "showStr")
+      
+    )
+    
+  )
+  
+)
+
+server <- function(input, output) {
+  
+  output$showStr <- renderText({
+    # Imprimir el texto
+    input$evalButton
+    isolate({
+       print(paste0("The string is: ", input$insertString))
+      
+    })
+    
+  })
+  
+}
+
+shinyApp(ui = ui, server = server)

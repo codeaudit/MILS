@@ -1,27 +1,63 @@
 library("shiny")
 
 ui <- fluidPage(
+  titlePanel("Minimal Algorithmic Loss Data Reduction"),
   
   sidebarLayout(
     
-    tabsetPanel(
+    wellPanel(
+      textInput(inputId = "insertString",
+                label = "Enter a string",
+                value = "110001101010111101"),
       
-      # Primer tab
-      tabPanel("Tab name",
-               
-               wellPanel(
-                 textInput(inputId = "insertString",
-                           label = "String to be evaluated",
-                           value = "10101010101010101"),
-                 # Boton
-                 actionButton("evalButton", "Evaluate")
-               )
-      )
+      sliderInput(inputId = "blockSize",
+                  label = "Block size",
+                  min = 2, max = 12, value = 12, step = 1),
       
+      sliderInput(inputId = "blockOverlap",
+                  label = "Block overlap",
+                  min = 0, max = 11, value = 0, step = 1),
+      
+      sliderInput(inputId = "nMutated",
+                  label = "Number of mutated bits",
+                  min = 1, max = 10, value = 1, step = 1),
+      
+      radioButtons(inputId = "alphabet",
+                   label = "Alphabet size",
+                   inline = TRUE,
+                   choices = list("2" = 2,
+                                  "4" = 4,
+                                  "5" = 5,
+                                  "6" = 6,
+                                  "9" = 9),
+                   selected = 2),
+      
+      radioButtons(inputId = "reductionMethod",
+                   label = "Reduction method",
+                   inline = TRUE,
+                   choices = list("Simultaneous" = "sim",
+                                  "Median" = "med"),
+                   selected = "sim"),
+      
+      # Boton
+      actionButton("evalButton", "Evaluate")
     ),
     
     mainPanel(
-      textOutput(outputId = "showStr")
+      
+      br(),
+      
+      h3("Result of Evaluation"),
+      
+      br(),
+      
+      div(p(textOutput(outputId = "origStr")),
+          style = "font-size:120%",
+          align = "center"),
+      
+      div(p(textOutput(outputId = "mutateStr")),
+          style = "font-size:120%",
+          align = "center")
       
     )
     

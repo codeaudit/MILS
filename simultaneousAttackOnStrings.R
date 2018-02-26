@@ -8,7 +8,8 @@ source("BDM1D.R")
 simultaneousAttackOnString <- function(origString,
                                        blockSize, 
                                        offset, base, 
-                                       numberOfAttackedBits) {
+                                       numberOfAttackedBits,
+                                       evaluateFromMedian) {
   
   origStringBDMValue <- evaluateBDM1D(origString, blockSize, offset, base)
   
@@ -32,21 +33,27 @@ simultaneousAttackOnString <- function(origString,
     lapply(deletionStrings, 
            evaluateBDM1D, blockSize, offset, base))
   
-  bdmDifferencesToOrig <- origStringBDMValue - deletionStringsBDMValues
+  if(evaluateFromMedian){
+ 
+    bdmDifferences<- (median(deletionStringsBDMValues) - 
+                                 deletionStringsBDMValues)
+  }
   
-  bdmDifferencesToMedian <- (median(deletionStringsBDMValues) - 
-                               deletionStringsBDMValues)
+  else{
+    bdmDifferences <- origStringBDMValue - deletionStringsBDMValues   
+  }
   
+  #bdmDifferences <- as.numeric(bdmDifferences)
   
   bdmDf <- data.frame(deletionStrings= deletionStrings,
-                      bdmDifferencesToOrig = bdmDifferencesToOrig, 
+                      bdmDifferences = bdmDifferences, 
                       stringsAsFactors=FALSE)
   
-  bdmDf$diffRankToOrig <- rank(
-    -as.numeric(bdmDf$bdmDifferencesToOrig), ties.method ="min"
+  bdmDf$diffRank <- rank(
+    - bdmDf$bdmDifferences, ties.method ="min"
   )
   
-  sortByDiffRank <- order(bdmDf$diffRankToOrig)
+  sortByDiffRank <- order(bdmDf$diffRank)
   
   indexRank <- as.numeric(rownames(bdmDf[sortByDiffRank,]))
   
@@ -59,7 +66,8 @@ simultaneousAttackOnString <- function(origString,
   
   stringVector[boolIndexVector]
   
-  removedBitsString <- paste(stringVector[boolIndexVector], sep="", collapse="")
+  removedBitsString <- paste(stringVector[boolIndexVector], 
+                             sep="", collapse="")
   
   
   return (removedBitsString)
@@ -67,4 +75,7 @@ simultaneousAttackOnString <- function(origString,
 }
 
 simultaneousAttackOnString("110001101010111101", 
-                           12, 1, 2, 10)
+                           12, 1, 2, 10, evaluateFromMedian = FALSE)
+
+#simultaneousAttackOnString("110001101010111101", 
+#                           12, 1, 2, 10, evaluateFromMedian = TRUE)

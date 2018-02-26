@@ -12,7 +12,7 @@ server <- function(input, output, session) {
   observeEvent(input$insertString, {
     updateSliderInput(session,
                       "nReduced",
-                      max = nchar(input$insertString) - input$nReduced)
+                      max = nchar(input$insertString) - 2)
   })
   
   output$origStr <- renderText({

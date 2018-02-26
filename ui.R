@@ -16,11 +16,11 @@ ui <- fluidPage(
       
       sliderInput(inputId = "blockOverlap",
                   label = "Block overlap",
-                  min = 0, max = 11, value = 0, step = 1),
+                  min = 0, max = 11, value = 11, step = 1),
       
       sliderInput(inputId = "nReduced",
                   label = "Number of reduced bits",
-                  min = 1, max = 10, value = 1, step = 1),
+                  min = 1, max = 10, value = 10, step = 1),
       
       radioButtons(inputId = "alphabet",
                    label = "Alphabet size",

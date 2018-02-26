@@ -19,7 +19,7 @@ server <- function(input, output, session) {
     
     input$evalButton
     isolate({
-      print(paste0("Original string = ", input$insertString))
+      paste0("Original string = ", input$insertString)
       
     })
     

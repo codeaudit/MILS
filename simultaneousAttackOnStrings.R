@@ -74,8 +74,8 @@ simultaneousAttackOnString <- function(origString,
   
 }
 
-simultaneousAttackOnString("110001101010111101", 
-                           12, 1, 2, 10, evaluateFromMedian = FALSE)
+#simultaneousAttackOnString("110001101010111101", 
+#                           12, 1, 2, 10, evaluateFromMedian = FALSE)
 
 #simultaneousAttackOnString("110001101010111101", 
 #                           12, 1, 2, 10, evaluateFromMedian = TRUE)

@@ -18,8 +18,8 @@ ui <- fluidPage(
                   label = "Block overlap",
                   min = 0, max = 11, value = 0, step = 1),
       
-      sliderInput(inputId = "nMutated",
-                  label = "Number of mutated bits",
+      sliderInput(inputId = "nReduced",
+                  label = "Number of reduced bits",
                   min = 1, max = 10, value = 1, step = 1),
       
       radioButtons(inputId = "alphabet",
@@ -32,11 +32,20 @@ ui <- fluidPage(
                                   "9" = 9),
                    selected = 2),
       
+      
+      radioButtons(inputId = "differenceType",
+                   label = "BDM Difference",
+                   inline = TRUE,
+                   choices = list("From original string" = "orig",
+                                  "From median of -1 bit reduced strings" = "seq"),
+                   selected = "orig"),
+      
+       
       radioButtons(inputId = "reductionMethod",
                    label = "Reduction method",
                    inline = TRUE,
                    choices = list("Simultaneous" = "sim",
-                                  "Median" = "med"),
+                                  "Sequential" = "seq"),
                    selected = "sim"),
       
       # Boton

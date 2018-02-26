@@ -11,8 +11,8 @@ server <- function(input, output, session) {
   
   observeEvent(input$insertString, {
     updateSliderInput(session,
-                      "nMutated",
-                      max = nchar(input$insertString) - input$nMutated)
+                      "nReduced",
+                      max = nchar(input$insertString) - input$nReduced)
   })
   
   output$origStr <- renderText({
@@ -30,7 +30,11 @@ server <- function(input, output, session) {
     input$evalButton
     isolate({
       print(paste0("Reduced string (minimal algorithmic loss) = ", 
-                   simultaneousAttackOnString(input$insertString, input$blockSize, input$blockSize - input$blockOverlap, input$alphabet, input$nMutated)
+                   simultaneousAttackOnString(input$insertString, 
+                                              input$blockSize, 
+                                              input$blockSize - input$blockOverlap, 
+                                              input$alphabet, input$nReduced, 
+                                              FALSE)
       ))
       
     })

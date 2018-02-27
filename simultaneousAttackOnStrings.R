@@ -27,8 +27,6 @@ simultaneousAttackOnString <- function(origString,
     
   }
   
-  deletionStringsBDMValues <- unlist(lapply)
-  
   deletionStringsBDMValues <- unlist(
     lapply(deletionStrings, 
            evaluateBDM1D, blockSize, offset, base))

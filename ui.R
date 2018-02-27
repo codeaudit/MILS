@@ -1,6 +1,6 @@
 library("shiny")
 
-ui <- fluidPage(
+shinyUI(fluidPage(
   titlePanel("Minimal Algorithmic Information Loss for Data Reduction"),
   
   sidebarLayout(
@@ -73,4 +73,4 @@ ui <- fluidPage(
     
   )
   
-)
+))

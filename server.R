@@ -1,7 +1,7 @@
 library(shiny)
 source("simultaneousAttackOnStrings.R")
 
-server <- function(input, output, session) {
+shinyServer(function(input, output, session) {
   
   observeEvent(input$blockSize, {
     updateSliderInput(session,
@@ -41,4 +41,4 @@ server <- function(input, output, session) {
     
   })
   
-}
+})

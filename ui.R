@@ -1,6 +1,18 @@
 library("shiny")
+library("shinythemes")
+
+orangeSlider <- "
+.irs-bar,
+.irs-bar-edge,
+.irs-single,
+.irs-grid-pol {
+  background: #f63;
+  border-color: #f63;
+}"
 
 shinyUI(fluidPage(
+  theme = shinytheme("united"),
+  tags$style(orangeSlider),
   titlePanel("Minimal Algorithmic Information Loss for Data Reduction"),
   
   sidebarLayout(
@@ -14,13 +26,13 @@ shinyUI(fluidPage(
                   label = "Number of reduced bits",
                   min = 1, max = 10, value = 10, step = 1),
       
-      sliderInput(inputId = "blockSize",
-                  label = "Block size",
-                  min = 2, max = 12, value = 12),
+      #sliderInput(inputId = "blockSize",
+      #            label = "Block size",
+      #            min = 2, max = 12, value = 12),
       
-      sliderInput(inputId = "blockOverlap",
-                  label = "Block overlap",
-                  min = 0, max = 11, value = 11),
+      #sliderInput(inputId = "blockOverlap",
+      #            label = "Block overlap",
+      #            min = 0, max = 11, value = 11),
       
       
       radioButtons(inputId = "alphabet",
@@ -50,8 +62,10 @@ shinyUI(fluidPage(
                    selected = "sim"),
       
       # Boton
-      actionButton("evalButton", "Evaluate")
-    ),
+      actionButton("evalButton", "Evaluate", 
+                   style = "color: #fff; 
+                            background-color: #f63; 
+                            border-color: #f63")),
     
     mainPanel(
       

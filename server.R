@@ -1,13 +1,13 @@
-library(shiny)
+library("shiny")
 source("simultaneousAttackOnStrings.R")
 
 shinyServer(function(input, output, session) {
   
-  observeEvent(input$blockSize, {
-    updateSliderInput(session,
-                      "blockOverlap",
-                      max = input$blockSize - 1)
-  })
+  #observeEvent(input$blockSize, {
+  #  updateSliderInput(session,
+  #                    "blockOverlap",
+  #                    max = input$blockSize - 1)
+  #})
   
   observeEvent(input$insertString, {
     updateSliderInput(session,
@@ -31,8 +31,8 @@ shinyServer(function(input, output, session) {
     isolate({
       paste0("Reduced string (minimal algorithmic loss) = ", 
                    simultaneousAttackOnString(input$insertString, 
-                                              input$blockSize, 
-                                              input$blockSize - input$blockOverlap, 
+                                              12, 
+                                              1, 
                                               input$alphabet, input$nReduced, 
                                               FALSE)
       )

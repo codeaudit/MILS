@@ -13,7 +13,6 @@ orangeSlider <- "
 shinyUI(fluidPage(
   theme = shinytheme("united"),
   tags$style(orangeSlider),
-  titlePanel("Minimal Algorithmic Information Loss for Data Reduction"),
   
   sidebarLayout(
     

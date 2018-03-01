@@ -52,15 +52,17 @@ shinyUI(fluidPage(
                                   "From median of -1 bit reduced strings" = "seq"),
                    selected = "orig"),
       
-       
-      radioButtons(inputId = "reductionMethod",
-                   label = "Reduction method",
-                   inline = TRUE,
-                   choices = list("Simultaneous" = "sim",
-                                  "Sequential" = "seq"),
-                   selected = "sim"),
+      #,
       
-      # Boton
+       
+      #radioButtons(inputId = "reductionMethod",
+      #             label = "Reduction method",
+      #             inline = TRUE,
+      #             choices = list("Simultaneous" = "sim",
+      #                            "Sequential" = "seq"),
+      #             selected = "sim"),
+      
+    
       actionButton("evalButton", "Evaluate", 
                    style = "color: #fff; 
                             background-color: #f63; 

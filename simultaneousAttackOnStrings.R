@@ -48,7 +48,7 @@ simultaneousAttackOnString <- function(origString,
                       stringsAsFactors=FALSE)
   
   bdmDf$diffRank <- rank(
-    - bdmDf$bdmDifferences, ties.method ="min"
+     bdmDf$bdmDifferences, ties.method ="min"
   )
   
   sortByDiffRank <- order(bdmDf$diffRank)

@@ -5,8 +5,8 @@ account: labores
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 288761
-bundleId: 1252559
+bundleId: 1261805
 url: https://labores.shinyapps.io/MALDR/
-when: 1520222310.64444
+when: 1520636568.72568
 asMultiple: FALSE
 asStatic: FALSE

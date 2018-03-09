@@ -41,8 +41,6 @@ simultaneousAttackOnString <- function(origString,
     bdmDifferences <- origStringBDMValue - deletionStringsBDMValues   
   }
   
-  #bdmDifferences <- as.numeric(bdmDifferences)
-  
   bdmDf <- data.frame(deletionStrings= deletionStrings,
                       bdmDifferences = bdmDifferences, 
                       stringsAsFactors=FALSE)
@@ -72,8 +70,20 @@ simultaneousAttackOnString <- function(origString,
   
 }
 
-#simultaneousAttackOnString("110001101010111101", 
-#                           12, 1, 2, 10, evaluateFromMedian = FALSE)
+## no block overlap
 
-#simultaneousAttackOnString("110001101010111101", 
-#                           12, 1, 2, 10, evaluateFromMedian = TRUE)
+#start.time <- Sys.time()
+# simultaneousAttackOnString("110001101010111101", 
+#                            12, 12, 2, 10, evaluateFromMedian = TRUE)
+# end.time <- Sys.time()
+# time.taken <- end.time - start.time
+# print(time.taken)
+# 
+##max block overlap
+# start.time <- Sys.time()
+# simultaneousAttackOnString("110001101010111101", 
+#                            12, 1, 2, 10, evaluateFromMedian = TRUE)
+# end.time <- Sys.time()
+# time.taken <-end.time - start.time
+# print (time.taken)
+

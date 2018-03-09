@@ -29,10 +29,10 @@ shinyServer(function(input, output, session) {
     
     input$evalButton
     isolate({
-      paste0("Reduced string (minimal algorithmic loss) = ", 
+      paste0("Reduced string with minimal algorithmic loss = ", 
                    simultaneousAttackOnString(input$insertString, 
-                                              12, 
-                                              1, 
+                                              blockSize=12, 
+                                              offset = 12, 
                                               input$alphabet, input$nReduced, 
                                               FALSE)
       )

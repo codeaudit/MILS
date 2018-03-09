@@ -46,10 +46,10 @@ shinyUI(fluidPage(
       
       
       radioButtons(inputId = "differenceType",
-                   label = "BDM Difference",
+                   label = "Element removal",
                    inline = TRUE,
-                   choices = list("From original string" = "orig",
-                                  "From median of -1 bit reduced strings" = "seq"),
+                   choices = list("From absolute neutral" = "orig",
+                                  "From closest to median" = "seq"),
                    selected = "orig"),
       
       #,

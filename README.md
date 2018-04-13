@@ -3,7 +3,7 @@
 
 The CTM datasets to be placed on the `data` folder can be downloaded [here](https://www.dropbox.com/sh/f76m3yb39n0edn9/AADofMJvIrxppmxPdvM9ROxqa?dl=0).
 
-### If you use this tool please cite:
+### If you use this tool please cite
 
 H. Zenil, N.A. Kiani, J. Tegnér
 **Parameter-free Network Sparsification and Data Reduction by Minimal Algorithmic Information Loss**
